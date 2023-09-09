@@ -1,0 +1,15 @@
+[Unit]
+Description=LibreNMS Container Service
+Requires=snap.docker.dockerd.service
+After=snap.docker.dockerd.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/home/librenmsadmin/librenmspoller
+ExecStart=/snap/bin/docker-compose up -d
+ExecStop=/snap/bin/docker-compose down
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target
