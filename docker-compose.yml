@@ -34,7 +34,7 @@ services:
       - "REDIS_DB=0"
     restart: always
 
-    dispatcher:
+  dispatcher:
       image: librenms/librenms:latest
       container_name: librenms_dispatcher
       hostname: librenms-dispatcher
